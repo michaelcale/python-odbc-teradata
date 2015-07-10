@@ -13,9 +13,8 @@ connstr = 'DRIVER=[Teradata];DBCNAME=YOURDBC;Authentication=LDAP;UID=' + userid 
 
 try:
     conn = pyodbc.connect(connstr)
-except:
-    print 'unable to connect to database'
-    
+except Exception,e: print str(e)
+
 csr = conn.cursor()
 
 sql = 'SELECT CURRENT_TIMESTAMP'
